@@ -67,7 +67,7 @@ if(OROCOS-RTT_FOUND)
   endif(DEFINED ORO_DEFAULT_INSTALL_PREFIX)
 
   # Infer package name from directory name.                                                                                                                                                                                                  
-  get_filename_component(orocos_package ${CMAKE_SOURCE_DIR} NAME)
+  get_filename_component(orocos_package ${PROJECT_SOURCE_DIR} NAME)
   message("[UseOrocos] Building package ${orocos_package}")
   # Set to true to indicate that these macros are available.
   set(USE_OROCOS_RTT 1)
@@ -342,7 +342,6 @@ if(OROCOS-RTT_FOUND)
   # Usage: orocos_typekit( typekitname src1 src2 src3 [INSTALL lib/orocos/project/types] [VERSION x.y.z] )
   #
   macro( orocos_typekit LIB_TARGET_NAME )
-
     ORO_PARSE_ARGUMENTS(ORO_TYPEKIT
       "INSTALL;VERSION"
       ""
@@ -437,7 +436,6 @@ if(OROCOS-RTT_FOUND)
 
     MESSAGE( "[UseOrocos] Building plugin library ${LIB_TARGET_NAME}" )
     ADD_LIBRARY( ${LIB_TARGET_NAME} SHARED ${SOURCES} )
-
     SET_TARGET_PROPERTIES( ${LIB_TARGET_NAME} PROPERTIES
       OUTPUT_NAME ${LIB_NAME}
       LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/orocos${OROCOS_SUFFIX}/${PROJECT_NAME}/plugins
